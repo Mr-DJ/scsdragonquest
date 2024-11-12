@@ -7,4 +7,4 @@ To play the challenge, download the latest version of the game from the releases
 To join devlopment, clone the following repository and download Unity 2D game engine.
 
 # Credits
-Environment art : Free Medieval Pixel Art Assets[https://assetstore.unity.com/packages/package/130131]
+Environment art : [Free Medieval Pixel Art Assets](https://assetstore.unity.com/packages/package/130131)
