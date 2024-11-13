@@ -85,10 +85,10 @@ public class HeroKnight : MonoBehaviour {
 
         // Move
         if (!m_rolling )
-            m_body2d.linearVelocity = new Vector2(inputX * m_speed, m_body2d.linearVelocity.y);
+            m_body2d.linearVelocity = new Vector2(inputX * m_speed, m_body2d.linearVelocityY);
 
         //Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.linearVelocity.y);
+        m_animator.SetFloat("AirSpeedY", m_body2d.linearVelocityY);
 
         // -- Handle Animations --
         //Wall Slide
@@ -96,14 +96,14 @@ public class HeroKnight : MonoBehaviour {
         m_animator.SetBool("WallSlide", m_isWallSliding);
 
         //Death
-        if (Input.GetKeyDown("e") && !m_rolling)
+        if (Input.GetKeyDown(KeyCode.E) && !m_rolling)
         {
             m_animator.SetBool("noBlood", m_noBlood);
             m_animator.SetTrigger("Death");
         }
             
         //Hurt
-        else if (Input.GetKeyDown("q") && !m_rolling)
+        else if (Input.GetKeyDown(KeyCode.Q) && !m_rolling)
             m_animator.SetTrigger("Hurt");
 
         //Attack
@@ -137,21 +137,21 @@ public class HeroKnight : MonoBehaviour {
             m_animator.SetBool("IdleBlock", false);
 
         // Roll
-        else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && !m_rolling && !m_isWallSliding)
         {
             m_rolling = true;
             m_animator.SetTrigger("Roll");
-            m_body2d.linearVelocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.linearVelocity.y);
+            m_body2d.linearVelocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.linearVelocityY);
         }
             
 
         //Jump
-        else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
+        else if (Input.GetKeyDown(KeyCode.Space) && m_grounded && !m_rolling)
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
-            m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocity.x, m_jumpForce);
+            m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocityX, m_jumpForce);
             m_groundSensor.Disable(0.2f);
         }
 
