@@ -232,8 +232,7 @@ public class HeroKnight : MonoBehaviour {
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Hit " + enemy.name);
-            // You can call a method on the enemy's script to deal damage here, e.g.,
-            // enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
+            enemy.GetComponent<EntityHealth>().TakeDamage(20);
         }
     }
 

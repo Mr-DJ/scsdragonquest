@@ -31558,8 +31558,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.039853103, y: 0.0050020274}
-  m_Size: {x: 3.2274027, y: 2.0427103}
+  m_Offset: {x: 0.035396103, y: -0.011696631}
+  m_Size: {x: 3.0769188, y: 1.8027525}
   m_Direction: 1
 --- !u!50 &1811663448
 Rigidbody2D:
@@ -31588,6 +31588,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1811663452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811663446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62617113c51eaa3458a01c09c6634f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1939161395
 GameObject:
   m_ObjectHideFlags: 0
@@ -31977,6 +31997,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3762685688968137242, guid: dbbb91ac90a88ac45a1bfe692b1c119f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1811663447}
+    - targetCorrespondingSourceObject: {fileID: 3762685688968137242, guid: dbbb91ac90a88ac45a1bfe692b1c119f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1811663452}
   m_SourcePrefab: {fileID: 100100000, guid: dbbb91ac90a88ac45a1bfe692b1c119f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
