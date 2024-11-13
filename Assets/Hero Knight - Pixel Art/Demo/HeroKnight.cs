@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
 
 public class HeroKnight : MonoBehaviour {
 
@@ -26,6 +27,10 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
 
+    public GameObject attackPoint; 
+    public float attackRadius = 1.5f; 
+    public LayerMask enemyLayer;
+    private Vector3 attackPointOriginalPosition;
 
     // Use this for initialization
     void Start ()
@@ -37,6 +42,12 @@ public class HeroKnight : MonoBehaviour {
         m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+
+        if (attackPoint == null)
+        {
+            Debug.LogError("Attack Point is not assigned in the Inspector.");
+        }
+        attackPointOriginalPosition = attackPoint.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -83,6 +94,8 @@ public class HeroKnight : MonoBehaviour {
             m_facingDirection = -1;
         }
 
+        UpdateAttackPointPosition(m_facingDirection);
+
         // Move
         if (!m_rolling )
             m_body2d.linearVelocity = new Vector2(inputX * m_speed, m_body2d.linearVelocityY);
@@ -121,6 +134,8 @@ public class HeroKnight : MonoBehaviour {
 
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
+
+            Attack();
 
             // Reset timer
             m_timeSinceAttack = 0.0f;
@@ -190,6 +205,44 @@ public class HeroKnight : MonoBehaviour {
             GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
             // Turn arrow in correct direction
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
+        }
+    }
+
+    void UpdateAttackPointPosition(int facingDirection)
+    {
+        if (attackPoint != null)
+        {
+            Vector3 newPosition = attackPointOriginalPosition;
+            newPosition.x *= facingDirection; // Flip X based on direction (-1 for left, 1 for right)
+            attackPoint.transform.localPosition = newPosition; 
+        }
+    }
+
+
+    public void Attack() {
+        if (attackPoint == null)
+        {
+            Debug.LogError("No attack point assigned!");
+            return; // Exit early if no attack point is set
+        }
+
+        // Detect enemies within range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRadius, enemyLayer);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("Hit " + enemy.name);
+            // You can call a method on the enemy's script to deal damage here, e.g.,
+            // enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.red; // Set gizmo color for visibility
+            Gizmos.DrawWireSphere(attackPoint.transform.position, attackRadius); // Draw sphere at attack point position
         }
     }
 }
