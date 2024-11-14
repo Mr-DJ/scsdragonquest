@@ -24,7 +24,7 @@ To try the challenge, look under the /Builds directory to find an executable.
 
 The build script is still a work in progress.
 
-### Prerequisites
+### Prerequisites for Development
 
 - Unity 2D
 
