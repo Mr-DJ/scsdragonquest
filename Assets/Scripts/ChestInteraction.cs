@@ -3,7 +3,19 @@ using UnityEngine;
 public class ChestInteraction : MonoBehaviour
 {
     [Header("Flag Settings")]
-    public string flag = "DEFAULT_FLAG";  // The flag value that will be printed when player interacts with chest
+    public string flag;  // The flag value that will be printed when player interacts with chest
+
+    private void Start()
+    {
+        // Get flag value from environment variable or define symbol (if applicable)
+#if UNITY_EDITOR
+        // For testing in editor, you can set this manually
+        flag = "EDITOR_FLAG";
+#else
+        // In production or compiled builds, get from environment variable or define symbol
+        flag = GetFlagFromEnvironment();
+#endif
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,5 +30,19 @@ public class ChestInteraction : MonoBehaviour
     {
         Debug.Log("Flag: " + flag);
         // You can also display this in UI or trigger some other win condition
+    }
+
+    private string GetFlagFromEnvironment()
+    {
+        // Example of getting an environment variable (you can set this during build)
+        string envFlag = System.Environment.GetEnvironmentVariable("GAME_FLAG");
+
+        if (!string.IsNullOrEmpty(envFlag))
+        {
+            return envFlag;
+        }
+        
+        // Default fallback if no environment variable is set
+        return "DEFAULT_FLAG";
     }
 }
