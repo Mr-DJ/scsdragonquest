@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flying_twin_headed_dragon-blue_0: 7661177692685605554
+      flying_twin_headed_dragon-blue_1: 1557280746035897161
+      flying_twin_headed_dragon-blue_10: 1743884026378199598
+      flying_twin_headed_dragon-blue_11: 5936082039473734356
+      flying_twin_headed_dragon-blue_2: 2647338880690611190
+      flying_twin_headed_dragon-blue_3: -2305910298433619583
+      flying_twin_headed_dragon-blue_4: -3396533249770170845
+      flying_twin_headed_dragon-blue_5: 3467606348746690319
+      flying_twin_headed_dragon-blue_6: -2541062943242484710
+      flying_twin_headed_dragon-blue_7: 8874822288120650781
+      flying_twin_headed_dragon-blue_8: -238386076122417563
+      flying_twin_headed_dragon-blue_9: 3926540626246186444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

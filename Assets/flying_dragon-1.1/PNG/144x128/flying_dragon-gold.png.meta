@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flying_dragon-gold_0: -911586523389173632
+      flying_dragon-gold_1: -6817050777838992250
+      flying_dragon-gold_10: 8102330934239211016
+      flying_dragon-gold_11: 253442006801159778
+      flying_dragon-gold_2: -714457702157828578
+      flying_dragon-gold_3: 1573017155516950156
+      flying_dragon-gold_4: -1133275786792734363
+      flying_dragon-gold_5: 7478952861495569411
+      flying_dragon-gold_6: -1578951475561628098
+      flying_dragon-gold_7: -6006418683774342661
+      flying_dragon-gold_8: 7305866563078573896
+      flying_dragon-gold_9: 3145317932539652480
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -469,11 +469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.93
+      value: -37.89
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.21
+      value: 3.09
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -577,7 +577,7 @@ Transform:
   m_GameObject: {fileID: 389811053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57, y: 2.55, z: 0.46174982}
+  m_LocalPosition: {x: 57, y: 2.5, z: 0.46174982}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -716,7 +716,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.93, y: -6.71, z: -10}
+  m_LocalPosition: {x: -37.89, y: 4.59, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -770,6 +770,7 @@ MonoBehaviour:
   dragon: {fileID: 1811663446}
   chestPrefab: {fileID: 3314096298600942080, guid: f7e97661f79778d4da811958489bd834, type: 3}
   chestSpawnPoint: {fileID: 389811054}
+  gameStartScene: MainMenu
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -31812,7 +31813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62617113c51eaa3458a01c09c6634f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10000
+  maxHealth: 1000
   isDead: 0
   onDeath:
     m_PersistentCalls:

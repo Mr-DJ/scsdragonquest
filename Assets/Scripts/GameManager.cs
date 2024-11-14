@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private EntityHealth playerHealth;
     private EntityHealth dragonHealth;
+    
+    [SerializeField] private string gameStartScene = "MainMenu";
 
     private bool gameEnded = false; // Prevent multiple triggers
 
@@ -85,7 +89,15 @@ public class GameManager : MonoBehaviour
     void LoseGame()
     {
         Debug.Log("Defeat! Player has lost.");
-        // Implement further logic like loading a game over screen
+        StartCoroutine(LoadMenuAfterDelay(2));
+    }
+
+    IEnumerator LoadMenuAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // Wait for the specified delay
+
+        // Load the menu scene after waiting
+        SceneManager.LoadScene(gameStartScene);
     }
 
     private void OnDrawGizmos()
