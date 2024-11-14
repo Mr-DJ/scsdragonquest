@@ -1,14 +1,16 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager Instance; 
-    public Text dialogText; 
+    public TextMeshProUGUI dialogText; 
     public float typingSpeed = 0.05f; 
 
+    private bool ongoing;
     private Coroutine typingCoroutine;
+    private Coroutine timeupCoroutine;
 
     private void Awake()
     {
@@ -27,11 +29,13 @@ public class DialogManager : MonoBehaviour
     {
         if (dialogText != null)
         {
-            if (typingCoroutine != null)
+            if (ongoing)
             {
                 StopCoroutine(typingCoroutine);
+                StopCoroutine(timeupCoroutine);
             }
             typingCoroutine = StartCoroutine(TypeText(message));
+            timeupCoroutine = StartCoroutine(HideText(message.Length * typingSpeed + 5));
         }
     }
 
@@ -45,6 +49,7 @@ public class DialogManager : MonoBehaviour
 
     private IEnumerator TypeText(string message)
     {
+        ongoing = true;
         dialogText.text = ""; 
         dialogText.gameObject.SetActive(true); 
 
@@ -53,5 +58,12 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter; 
             yield return new WaitForSeconds(typingSpeed); 
         }
+        ongoing = false;
+    }
+
+    private IEnumerator HideText(float timeout)
+    {
+        yield return new WaitForSeconds(timeout);
+        dialogText.text = "";
     }
 }
