@@ -66,7 +66,7 @@ public class EntityHealth : MonoBehaviour
         onDeath?.Invoke();
 
         // Disable or destroy the GameObject upon death (optional)
-        gameObject.SetActive(false); 
+        // gameObject.SetActive(false);
     }
 
     // Method to check if the entity is dead

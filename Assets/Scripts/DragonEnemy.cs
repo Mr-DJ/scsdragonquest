@@ -20,10 +20,14 @@ public class DragonEnemy : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
     private float attackCooldownTimer = 0f;
+    
+    private SpriteRenderer spriteRenderer;
+    private Vector3 firePointOriginalPosition;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Configure Rigidbody2D properties for smooth floating movement
         rb.bodyType = RigidbodyType2D.Kinematic; 
@@ -31,12 +35,19 @@ public class DragonEnemy : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find player by tag
+
+        // Store original local position of fire point for flipping purposes
+        if (firePoint != null)
+        {
+            firePointOriginalPosition = firePoint.localPosition;
+        }
     }
 
     void Update()
     {
         MoveDragon();
         HandleAttacks();
+        FacePlayer(); // Always face the player and flip fire point accordingly
     }
 
     void MoveDragon()
@@ -97,6 +108,30 @@ public class DragonEnemy : MonoBehaviour
         else
         {
             Debug.LogError("Fireball prefab or FirePoint not assigned.");
+        }
+    }
+
+    void FacePlayer()
+    {
+        if (player != null)
+        {
+            // If player is to the right of the dragon, face right (flipX false), else face left (flipX true).
+            if (player.position.x < transform.position.x)
+            {
+                spriteRenderer.flipX = false;  // Face right
+                
+                // Flip fire point accordingly
+                if (firePoint != null)
+                    firePoint.localPosition = new Vector3(-Mathf.Abs(firePointOriginalPosition.x), firePointOriginalPosition.y, firePointOriginalPosition.z);
+            }
+            else
+            {
+                spriteRenderer.flipX = true;   // Face left
+
+                // Flip fire point accordingly
+                if (firePoint != null)
+                    firePoint.localPosition = new Vector3(Mathf.Abs(firePointOriginalPosition.x), firePointOriginalPosition.y, firePointOriginalPosition.z);
+            }
         }
     }
 

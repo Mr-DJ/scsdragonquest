@@ -31494,7 +31494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62617113c51eaa3458a01c09c6634f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 100000
   isDead: 0
   onDeath:
     m_PersistentCalls:
@@ -31712,8 +31712,8 @@ MonoBehaviour:
     m_Bits: 8
   fireballPrefab: {fileID: 6403261397353019590, guid: 03d71f9a64f5b1a499dc3edb1896cde9, type: 3}
   firePoint: {fileID: 856973761}
-  attackRange: 10
-  fireballSpeed: 5
+  attackRange: 17
+  fireballSpeed: 7
   timeBetweenAttacks: 2
 --- !u!1 &1866650746
 GameObject:
