@@ -27,6 +27,14 @@ To try the challenge, look under [**Releases**](https://github.com/Mr-DJ/scsdrag
 
 The build script is still a work in progress.
 
+### Controls
+| Key    | Action |
+| -------- | ------- |
+| A | Move left  |
+| D | Move right |
+| Space | Jump|
+| Mouse button left | Attack |
+
 ### Prerequisites for Development
 
 - Unity 2D
