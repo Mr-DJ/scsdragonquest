@@ -20,7 +20,10 @@ This is a game hacking challenge, where the player has to try and manipulate the
 
 To build, simply open with Unity and build on any one of the target platforms, including Windows, Linux, MacOS, Android and WebGL.
 
-To try the challenge, look under the /Builds directory to find an executable.
+
+### Accessing the Challenge
+
+To try the challenge, look under [**Releases**](https://github.com/Mr-DJ/scsdragonquest/releases) to find an executable specific to your platform.
 
 The build script is still a work in progress.
 
@@ -28,9 +31,7 @@ The build script is still a work in progress.
 
 - Unity 2D
 
-### Accessing the Challenge
-
-1. **Clone the Repository**:
+**Clone the Repository**:
 [Repository URL](https://github.com/Mr-DJ/scsdragonquest)
 # Credits
 Environment art : [Free Medieval Pixel Art Assets](https://assetstore.unity.com/packages/package/130131)
