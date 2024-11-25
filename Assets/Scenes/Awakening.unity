@@ -474,8 +474,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07323ec379f05d1498870dbcf65fb5f0, type: 2}
+  m_sharedMaterial: {fileID: -5774924039311027517, guid: 07323ec379f05d1498870dbcf65fb5f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32124,7 +32124,7 @@ GameObject:
   - component: {fileID: 1678409469}
   - component: {fileID: 1678409468}
   m_Layer: 0
-  m_Name: Sample Dialog Trigger
+  m_Name: InitialPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32178,8 +32178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c702ae40d242af4792360bc3709a9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogMessage: In this world, you are either a potato or not one.
+  dialogMessage: Slay the dragon to get the flag
   targetTag: Player
+  triggerOnce: 1
 --- !u!4 &1678409470
 Transform:
   m_ObjectHideFlags: 0
@@ -32472,7 +32473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62617113c51eaa3458a01c09c6634f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 3000
   isDead: 0
   onDeath:
     m_PersistentCalls:

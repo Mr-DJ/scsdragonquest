@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private DialogManager dialogManager;
+
     [Header("References")]
     public GameObject player;  // Drag and drop the player GameObject here
     public GameObject dragon;  // Drag and drop the dragon GameObject here
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        dialogManager = DialogManager.Instance;
+        
         // Automatically get the EntityHealth component from the player and dragon
         if (player != null)
         {
@@ -53,6 +57,8 @@ public class GameManager : MonoBehaviour
         {
             gameEnded = true;
             Debug.Log("Player has died! Game Over.");
+            string message = "Hero has died! Game Over.";
+            dialogManager.ShowDialog(message);
             LoseGame();
         }
     }
@@ -77,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(chestPrefab, chestSpawnPoint.position, Quaternion.identity);
             Debug.Log("Chest spawned at platform.");
+            string message = "Chest spawned at platform. Your flag lies within the chest";
+            dialogManager.ShowDialog(message);
         }
         else
         {

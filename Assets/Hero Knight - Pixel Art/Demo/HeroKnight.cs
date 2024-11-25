@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class HeroKnight : MonoBehaviour {
 
     [SerializeField] float      m_speed = 4.0f;
+    [SerializeField] int      m_damageAmount = 20;
     [SerializeField] float      m_jumpForce = 7.5f;
     [SerializeField] float      m_rollForce = 6.0f;
     [SerializeField] bool       m_noBlood = false;
@@ -232,7 +233,7 @@ public class HeroKnight : MonoBehaviour {
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Hit " + enemy.name);
-            enemy.GetComponent<EntityHealth>().TakeDamage(20);
+            enemy.GetComponent<EntityHealth>().TakeDamage(m_damageAmount);
         }
     }
 

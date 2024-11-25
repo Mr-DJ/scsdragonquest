@@ -1,7 +1,8 @@
 using UnityEngine;
-
 public class ChestInteraction : MonoBehaviour
 {
+    private DialogManager dialogManager;
+    
     [Header("Flag Settings")]
     public string flag;  // The flag value that will be printed when player interacts with chest
 
@@ -15,6 +16,8 @@ public class ChestInteraction : MonoBehaviour
         // In production or compiled builds, get from environment variable or define symbol
         flag = GetFlagFromEnvironment();
 #endif
+
+        dialogManager = DialogManager.Instance;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,8 +31,9 @@ public class ChestInteraction : MonoBehaviour
 
     private void PrintFlag()
     {
+        string message = "Congratulations! Your secret flag is: " + flag;
+        dialogManager.ShowDialog(message);
         Debug.Log("Flag: " + flag);
-        // You can also display this in UI or trigger some other win condition
     }
 
     private string GetFlagFromEnvironment()
